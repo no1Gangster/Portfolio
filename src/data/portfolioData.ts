@@ -1,20 +1,33 @@
-export type Experience = {
+export interface PersonalInfo {
+	name: string;
+	role: string;
+	tagline: string;
+	location: string;
+	email: string;
+	phone: string;
+	linkedin: string;
+	github: string;
+	experienceYears: string;
+	summary: string;
+}
+
+export interface Experience {
 	company: string;
 	role: string;
 	period: string;
 	client?: string;
 	description: string[];
 	skills: string[];
-};
+}
 
-export type Metric = {
+export interface Metric {
 	label: string;
 	value: string;
 	description: string;
 	iconName: string;
-};
+}
 
-export type Project = {
+export interface Project {
 	title: string;
 	category: string;
 	date?: string;
@@ -23,16 +36,38 @@ export type Project = {
 	techStack: string[];
 	githubUrl?: string;
 	liveUrl?: string;
-};
+}
 
-export type Certification = {
+export interface Certification {
 	title: string;
 	issuer: string;
 	date: string;
 	icon: string;
-};
+}
 
-export const PORTFOLIO_DATA = {
+export interface SkillCategory {
+	name: string;
+	skills: string[];
+}
+
+export interface Education {
+	degree: string;
+	institution: string;
+	period: string;
+	score: string;
+}
+
+export interface PortfolioData {
+	personal: PersonalInfo;
+	metrics: Metric[];
+	experience: Experience[];
+	skillsCategory: SkillCategory[];
+	projects: Project[];
+	education: Education[];
+	certifications: Certification[];
+}
+
+const PORTFOLIO_DATA: PortfolioData = {
 	personal: {
 		name: "Cheerag Routaray",
 		role: "Software Development Engineer (SDE - 1)",
@@ -76,7 +111,7 @@ export const PORTFOLIO_DATA = {
 			description: "Dedicated full-time + intern experience as SDE",
 			iconName: "Award",
 		},
-	] as Metric[],
+	],
 
 	experience: [
 		{
@@ -103,7 +138,7 @@ export const PORTFOLIO_DATA = {
 				"Flyway",
 			],
 		},
-	] as Experience[],
+	],
 
 	skillsCategory: [
 		{
@@ -190,7 +225,7 @@ export const PORTFOLIO_DATA = {
 			],
 			techStack: ["React", "Node.js", "Express", "MongoDB", "Bootstrap"],
 		},
-	] as Project[],
+	],
 
 	education: [
 		{
@@ -232,5 +267,7 @@ export const PORTFOLIO_DATA = {
 			date: "Aug 2023",
 			icon: "Code",
 		},
-	] as Certification[],
+	],
 };
+
+export default PORTFOLIO_DATA;

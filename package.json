@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc && vite build",
-		"lint": "eslint .",
+		"lint": "biome lint .",
+		"format": "biome format --write .",
+		"check": "biome check --write .",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -18,6 +20,7 @@
 		"tailwind-merge": "3.6.0"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "^2.5.11",
 		"@tailwindcss/vite": "4.3.3",
 		"@types/node": "26.4.0",
 		"@types/react": "19.2.18",

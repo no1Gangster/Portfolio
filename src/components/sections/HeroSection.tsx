@@ -8,9 +8,9 @@ import {
 	Zap,
 } from "lucide-react";
 import type React from "react";
-import { PORTFOLIO_DATA } from "../../data/portfolioData";
+import PORTFOLIO_DATA from "../../data/portfolioData";
 
-export const HeroSection: React.FC = () => {
+const HeroSection: React.FC = (): React.ReactElement => {
 	return (
 		<section id="about" className="relative pt-32 pb-20 overflow-hidden">
 			{/* Glow background effects */}
@@ -143,3 +143,5 @@ export const HeroSection: React.FC = () => {
 		</section>
 	);
 };
+
+export default HeroSection;

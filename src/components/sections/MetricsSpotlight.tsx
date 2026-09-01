@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, Bug, ShieldCheck, Zap } from "lucide-react";
 import type React from "react";
-import { PORTFOLIO_DATA } from "../../data/portfolioData";
+import PORTFOLIO_DATA, { type Metric } from "../../data/portfolioData";
 
 const iconMap: Record<string, React.ReactNode> = {
 	ShieldCheck: <ShieldCheck className="w-6 h-6 text-cyan-400" />,
@@ -10,12 +10,12 @@ const iconMap: Record<string, React.ReactNode> = {
 	Award: <Award className="w-6 h-6 text-purple-400" />,
 };
 
-export const MetricsSpotlight: React.FC = () => {
+const MetricsSpotlight: React.FC = (): React.ReactElement => {
 	return (
 		<section className="py-12 bg-slate-900/50 border-y border-slate-800/60">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6">
 				<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-					{PORTFOLIO_DATA.metrics.map((metric, idx) => (
+					{PORTFOLIO_DATA.metrics.map((metric: Metric, idx: number) => (
 						<motion.div
 							key={metric.label}
 							initial={{ opacity: 0, y: 20 }}
@@ -47,3 +47,5 @@ export const MetricsSpotlight: React.FC = () => {
 		</section>
 	);
 };
+
+export default MetricsSpotlight;
