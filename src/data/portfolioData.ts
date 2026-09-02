@@ -15,7 +15,7 @@ export interface Experience {
 	company: string;
 	role: string;
 	period: string;
-	client?: string;
+	clients: string[];
 	description: string[];
 	skills: string[];
 }
@@ -45,9 +45,33 @@ export interface Certification {
 	icon: string;
 }
 
+export enum SkillIcon {
+	Code = "Code",
+	Terminal = "Terminal",
+	Cpu = "Cpu",
+	Server = "Server",
+	Database = "Database",
+	Cloud = "Cloud",
+	Layers = "Layers",
+	Workflow = "Workflow",
+	GitBranch = "GitBranch",
+	Box = "Box",
+	Globe = "Globe",
+	Zap = "Zap",
+	Bot = "Bot",
+	Shield = "Shield",
+}
+
+export interface Skill {
+	name: string;
+	icon: SkillIcon;
+}
+
+export type Skills = Skill;
+
 export interface SkillCategory {
 	name: string;
-	skills: string[];
+	skills: Skills[];
 }
 
 export interface Education {
@@ -118,7 +142,7 @@ const PORTFOLIO_DATA: PortfolioData = {
 			company: "Surya Digitech Pvt Ltd",
 			role: "SDE - 1 (Full-time + Intern)",
 			period: "Jan 2025 - Mar 2026 (1 Yr 3 Mos)",
-			client: "FDH Bank",
+			clients: ["FDH Bank", "Chanel", "HDFC Bank"],
 			description: [
 				"Engineered high-concurrency payment modules ensuring ACID compliance for international money transfers and voucher-based redemptions with FDH Bank as client.",
 				"Managed deployments to AWS Fargate using AWS CloudFormation across multiple production and staging environments.",
@@ -129,13 +153,15 @@ const PORTFOLIO_DATA: PortfolioData = {
 			skills: [
 				"Kotlin",
 				"React",
-				"Ktor",
+				"PostgreSQL",
 				"AWS SDK",
+				"Docker",
+				"AI SDK",
 				"CloudFormation",
 				"TypeScript",
-				"MobX State Tree",
-				"jOOQ",
 				"Flyway",
+				"Maven",
+				"Gradle",
 			],
 		},
 	],
@@ -144,49 +170,64 @@ const PORTFOLIO_DATA: PortfolioData = {
 		{
 			name: "Backend & Core Engineering",
 			skills: [
-				"Kotlin",
-				"TypeScript",
-				"Python",
-				"C/C++",
-				"Ktor",
-				"Koin",
-				"JavaScript (ES6+)",
-				"SQL",
+				{ name: "Kotlin", icon: SkillIcon.Code },
+				{ name: "TypeScript", icon: SkillIcon.Code },
+				{ name: "Python", icon: SkillIcon.Code },
+				{ name: "C/C++", icon: SkillIcon.Cpu },
+				{ name: "NodeJS", icon: SkillIcon.Server },
+				{ name: "Bun", icon: SkillIcon.Zap },
+				{ name: "Ktor", icon: SkillIcon.Server },
+				{ name: "Koin", icon: SkillIcon.Layers },
+				{ name: "JavaScript (ES6+)", icon: SkillIcon.Code },
+				{ name: "SQL", icon: SkillIcon.Database },
+				{ name: "Java", icon: SkillIcon.Code },
 			],
 		},
 		{
 			name: "Cloud & DevOps",
 			skills: [
-				"AWS Fargate",
-				"AWS CloudFormation",
-				"AWS S3",
-				"AWS SNS/SES",
-				"AWS Lambda",
-				"Docker",
-				"CI/CD",
-				"GitHub Actions",
+				{ name: "AWS Fargate", icon: SkillIcon.Cloud },
+				{ name: "AWS CloudFormation", icon: SkillIcon.Layers },
+				{ name: "AWS S3", icon: SkillIcon.Cloud },
+				{ name: "AWS SNS/SES", icon: SkillIcon.Globe },
+				{ name: "AWS Lambda", icon: SkillIcon.Zap },
+				{ name: "Docker", icon: SkillIcon.Box },
+				{ name: "CI/CD", icon: SkillIcon.Workflow },
+				{ name: "GitHub Actions", icon: SkillIcon.Workflow },
 			],
 		},
 		{
 			name: "Databases & ORM",
-			skills: ["PostgreSQL", "jOOQ", "Flyway"],
+			skills: [
+				{ name: "PostgreSQL", icon: SkillIcon.Database },
+				{ name: "jOOQ", icon: SkillIcon.Database },
+				{ name: "Flyway", icon: SkillIcon.Workflow },
+			],
 		},
 		{
 			name: "Frontend & AI Tooling",
 			skills: [
-				"React",
-				"Vite",
-				"MobX State Tree",
-				"Material UI",
-				"Bootstrap",
-				"React-Router-Dom",
-				"AI SDK",
-				"Agentic AI",
+				{ name: "React", icon: SkillIcon.Layers },
+				{ name: "Vite", icon: SkillIcon.Zap },
+				{ name: "MobX State Tree", icon: SkillIcon.Layers },
+				{ name: "Material UI", icon: SkillIcon.Layers },
+				{ name: "Bootstrap", icon: SkillIcon.Layers },
+				{ name: "React-Router-Dom", icon: SkillIcon.Globe },
+				{ name: "AI SDK", icon: SkillIcon.Bot },
+				{ name: "Agentic AI", icon: SkillIcon.Bot },
+				{ name: "i18n", icon: SkillIcon.Globe },
 			],
 		},
 		{
 			name: "Build Tools & Platform",
-			skills: ["Git", "GitHub", "Linux", "Jira", "Maven", "Gradle", "Bun"],
+			skills: [
+				{ name: "Git", icon: SkillIcon.GitBranch },
+				{ name: "GitHub", icon: SkillIcon.GitBranch },
+				{ name: "Linux", icon: SkillIcon.Terminal },
+				{ name: "Maven", icon: SkillIcon.Box },
+				{ name: "Gradle", icon: SkillIcon.Box },
+				{ name: "Bun", icon: SkillIcon.Zap },
+			],
 		},
 	],
 
@@ -211,6 +252,7 @@ const PORTFOLIO_DATA: PortfolioData = {
 				"Nodemailer",
 				"BCrypt",
 			],
+			githubUrl: "https://github.com/no1Gangster/Expense-Tracker",
 		},
 		{
 			title: "E-Commerce Platform",
@@ -224,6 +266,7 @@ const PORTFOLIO_DATA: PortfolioData = {
 				"Responsive, mobile-first UI with modern component architecture",
 			],
 			techStack: ["React", "Node.js", "Express", "MongoDB", "Bootstrap"],
+			githubUrl: "https://github.com/no1Gangster/go-flowers",
 		},
 	],
 
@@ -256,6 +299,12 @@ const PORTFOLIO_DATA: PortfolioData = {
 			icon: "Server",
 		},
 		{
+			title: "The Joy of Computing using Python",
+			issuer: "NPTEL",
+			date: "May 2024",
+			icon: "Code",
+		},
+		{
 			title: "Ethical Hacking",
 			issuer: "NPTEL",
 			date: "Dec 2023",
@@ -265,6 +314,12 @@ const PORTFOLIO_DATA: PortfolioData = {
 			title: "MERN Stack Web Development",
 			issuer: "Preplabs",
 			date: "Aug 2023",
+			icon: "Code",
+		},
+		{
+			title: "DotNet Web Application Development",
+			issuer: "Syllogistek Systems Private Ltd.",
+			date: "Sep 2022",
 			icon: "Code",
 		},
 	],

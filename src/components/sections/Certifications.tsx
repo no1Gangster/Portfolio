@@ -94,11 +94,11 @@ const Certifications: React.FC = (): React.ReactElement => {
 											<GraduationCap className="w-5 h-5" />
 										</div>
 										<div className="flex-1">
-											<div className="flex items-center justify-between">
+											<div className="flex items-center justify-between gap-5">
 												<h3 className="text-sm sm:text-base font-bold text-slate-100">
 													{edu.degree}
 												</h3>
-												<span className="text-xs font-mono text-cyan-400">
+												<span className="text-xs font-mono text-cyan-400 shrink-0">
 													{edu.period}
 												</span>
 											</div>

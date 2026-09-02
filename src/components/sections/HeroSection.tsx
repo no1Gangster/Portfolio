@@ -3,12 +3,44 @@ import {
 	ArrowRight,
 	Cpu,
 	Database,
+	type LucideProps,
 	Mail,
 	ShieldCheck,
 	Zap,
 } from "lucide-react";
 import type React from "react";
 import PORTFOLIO_DATA from "../../data/portfolioData";
+
+type TechHighlight = {
+	icon: React.ForwardRefExoticComponent<
+		Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+	>;
+	title: string;
+	description: string;
+};
+
+const TECH_HIGHLIGHTS: TechHighlight[] = [
+	{
+		icon: Database,
+		title: "ACID Compliance",
+		description: "Distributed Payments",
+	},
+	{
+		icon: ShieldCheck,
+		title: "99.9% Uptime SLA",
+		description: "Core Banking Backend",
+	},
+	{
+		icon: Zap,
+		title: "-30% Token Costs",
+		description: "AI Context Chunking",
+	},
+	{
+		icon: Cpu,
+		title: "AWS Cloud Fargate",
+		description: "CloudFormation Infra",
+	},
+];
 
 const HeroSection: React.FC = (): React.ReactElement => {
 	return (
@@ -83,61 +115,21 @@ const HeroSection: React.FC = (): React.ReactElement => {
 					transition={{ duration: 0.5, delay: 0.4 }}
 					className="pt-8 border-t border-slate-800/60 grid grid-cols-2 md:grid-cols-4 gap-4"
 				>
-					<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/60">
-						<div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
-							<Database className="w-5 h-5" />
+					{TECH_HIGHLIGHTS.map((techHighlight: TechHighlight) => (
+						<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/60">
+							<div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+								<techHighlight.icon className="w-5 h-5" />
+							</div>
+							<div>
+								<p className="text-xs font-semibold text-slate-200">
+									{techHighlight.title}
+								</p>
+								<p className="text-[11px] text-slate-400 font-mono">
+									{techHighlight.description}
+								</p>
+							</div>
 						</div>
-						<div>
-							<p className="text-xs font-semibold text-slate-200">
-								ACID Compliance
-							</p>
-							<p className="text-[11px] text-slate-400 font-mono">
-								Distributed Payments
-							</p>
-						</div>
-					</div>
-
-					<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/60">
-						<div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
-							<ShieldCheck className="w-5 h-5" />
-						</div>
-						<div>
-							<p className="text-xs font-semibold text-slate-200">
-								99.9% Uptime SLA
-							</p>
-							<p className="text-[11px] text-slate-400 font-mono">
-								Core Banking Backend
-							</p>
-						</div>
-					</div>
-
-					<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/60">
-						<div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
-							<Zap className="w-5 h-5" />
-						</div>
-						<div>
-							<p className="text-xs font-semibold text-slate-200">
-								-30% Token Costs
-							</p>
-							<p className="text-[11px] text-slate-400 font-mono">
-								AI Context Chunking
-							</p>
-						</div>
-					</div>
-
-					<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/60">
-						<div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
-							<Cpu className="w-5 h-5" />
-						</div>
-						<div>
-							<p className="text-xs font-semibold text-slate-200">
-								AWS Cloud Fargate
-							</p>
-							<p className="text-[11px] text-slate-400 font-mono">
-								CloudFormation Infra
-							</p>
-						</div>
-					</div>
+					))}
 				</motion.div>
 			</div>
 		</section>

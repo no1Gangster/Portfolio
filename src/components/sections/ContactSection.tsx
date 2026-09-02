@@ -18,7 +18,7 @@ const ContactSection: React.FC = (): React.ReactElement => {
 		message: "",
 	});
 
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+	const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>): void => {
 		e.preventDefault();
 		setSubmitted(true);
 		setTimeout((): void => {

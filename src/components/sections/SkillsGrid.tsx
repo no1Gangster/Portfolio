@@ -1,8 +1,28 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import {
+	Bot,
+	Box,
+	Check,
+	Cloud,
+	Code,
+	Cpu,
+	Database,
+	GitBranch,
+	Globe,
+	Layers,
+	Server,
+	Shield,
+	Terminal,
+	Workflow,
+	Zap,
+} from "lucide-react";
 import type React from "react";
 import { useState } from "react";
-import PORTFOLIO_DATA, { type SkillCategory } from "../../data/portfolioData";
+import PORTFOLIO_DATA, {
+	type Skill,
+	type SkillCategory,
+	SkillIcon,
+} from "../../data/portfolioData";
 
 const SkillsGrid: React.FC = (): React.ReactElement => {
 	const [activeTab, setActiveTab] = useState<number>(0);
@@ -53,22 +73,71 @@ const SkillsGrid: React.FC = (): React.ReactElement => {
 					initial={{ opacity: 0, y: 15 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.3 }}
-					className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4"
+					className="flex flex-wrap justify-center gap-4"
 				>
 					{PORTFOLIO_DATA.skillsCategory[activeTab].skills.map(
-						(skill: string) => (
-							<div
-								key={skill}
-								className="glass-card p-4 rounded-xl flex items-center gap-3 border border-slate-800 hover:border-cyan-500/40 transition-all group"
-							>
-								<div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
-									<Check className="w-4 h-4" />
+						(skill: Skill) => {
+							let Icon = Check;
+
+							switch (skill.icon) {
+								case SkillIcon.Code:
+									Icon = Code;
+									break;
+								case SkillIcon.Terminal:
+									Icon = Terminal;
+									break;
+								case SkillIcon.Cpu:
+									Icon = Cpu;
+									break;
+								case SkillIcon.Server:
+									Icon = Server;
+									break;
+								case SkillIcon.Database:
+									Icon = Database;
+									break;
+								case SkillIcon.Cloud:
+									Icon = Cloud;
+									break;
+								case SkillIcon.Layers:
+									Icon = Layers;
+									break;
+								case SkillIcon.Workflow:
+									Icon = Workflow;
+									break;
+								case SkillIcon.GitBranch:
+									Icon = GitBranch;
+									break;
+								case SkillIcon.Box:
+									Icon = Box;
+									break;
+								case SkillIcon.Globe:
+									Icon = Globe;
+									break;
+								case SkillIcon.Zap:
+									Icon = Zap;
+									break;
+								case SkillIcon.Bot:
+									Icon = Bot;
+									break;
+								case SkillIcon.Shield:
+									Icon = Shield;
+									break;
+							}
+
+							return (
+								<div
+									key={skill.name}
+									className="glass-card p-4 rounded-xl flex items-center gap-3 border border-slate-800 hover:border-cyan-500/40 transition-all group w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.67rem)] md:w-[calc(25%-0.75rem)]"
+								>
+									<div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shrink-0">
+										<Icon className="w-4 h-4" />
+									</div>
+									<span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
+										{skill.name}
+									</span>
 								</div>
-								<span className="text-xs sm:text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
-									{skill}
-								</span>
-							</div>
-						),
+							);
+						},
 					)}
 				</motion.div>
 
@@ -79,13 +148,13 @@ const SkillsGrid: React.FC = (): React.ReactElement => {
 					</h3>
 					<div className="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto">
 						{PORTFOLIO_DATA.skillsCategory
-							.flatMap((c: SkillCategory): string[] => c.skills)
-							.map((skill: string) => (
+							.flatMap((c: SkillCategory): Skill[] => c.skills)
+							.map((skill: Skill) => (
 								<span
-									key={skill}
+									key={skill.name}
 									className="px-3 py-1.5 rounded-lg bg-slate-900/90 text-xs font-mono text-slate-300 border border-slate-800/80 hover:border-cyan-500/50 hover:text-cyan-400 transition-colors cursor-default"
 								>
-									{skill}
+									{skill.name}
 								</span>
 							))}
 					</div>

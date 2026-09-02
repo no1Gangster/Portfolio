@@ -1,12 +1,22 @@
+// FIXME: Linkedin icon maybe removed in future updates, currently is deprecated, but the URL provided for new icon by the depecation comments in `SimpleIcons` website is not available.
 import { Linkedin, Mail, Menu, Terminal, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useState } from "react";
 import PORTFOLIO_DATA from "../../data/portfolioData";
 
-interface NavLink {
+type NavLink = {
 	name: string;
 	href: string;
-}
+};
+
+const NAVLINKS: NavLink[] = [
+	{ name: "About", href: "#about" },
+	{ name: "Experience", href: "#experience" },
+	{ name: "Skills", href: "#skills" },
+	{ name: "Projects", href: "#projects" },
+	{ name: "Certifications", href: "#certifications" },
+	{ name: "Contact", href: "#contact" },
+];
 
 const Navbar: React.FC = (): React.ReactElement => {
 	const [scrolled, setScrolled] = useState<boolean>(false);
@@ -17,17 +27,9 @@ const Navbar: React.FC = (): React.ReactElement => {
 			setScrolled(window.scrollY > 20);
 		};
 		window.addEventListener("scroll", handleScroll);
+
 		return (): void => window.removeEventListener("scroll", handleScroll);
 	}, []);
-
-	const navLinks: NavLink[] = [
-		{ name: "About", href: "#about" },
-		{ name: "Experience", href: "#experience" },
-		{ name: "Skills", href: "#skills" },
-		{ name: "Projects", href: "#projects" },
-		{ name: "Certifications", href: "#certifications" },
-		{ name: "Contact", href: "#contact" },
-	];
 
 	return (
 		<header
@@ -38,7 +40,7 @@ const Navbar: React.FC = (): React.ReactElement => {
 			}`}
 		>
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-				{/* Brand Logo */}
+				{/* Logo and Name */}
 				<a href="#about" className="flex items-center gap-2.5 group">
 					<div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
 						<Terminal className="w-5 h-5" />
@@ -48,14 +50,14 @@ const Navbar: React.FC = (): React.ReactElement => {
 							{PORTFOLIO_DATA.personal.name}
 						</span>
 						<span className="text-[11px] text-cyan-400 font-mono tracking-wide">
-							SDE - 1
+							Software Development Engineer
 						</span>
 					</div>
 				</a>
 
 				{/* Desktop Nav Links */}
 				<nav className="hidden md:flex items-center gap-1.5 bg-slate-900/60 p-1.5 rounded-full border border-slate-800/80">
-					{navLinks.map((link: NavLink) => (
+					{NAVLINKS.map((link: NavLink) => (
 						<a
 							key={link.name}
 							href={link.href}
@@ -109,7 +111,7 @@ const Navbar: React.FC = (): React.ReactElement => {
 			{/* Mobile Menu Dropdown */}
 			{mobileMenuOpen && (
 				<div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 py-4 space-y-3">
-					{navLinks.map((link: NavLink) => (
+					{NAVLINKS.map((link: NavLink) => (
 						<a
 							key={link.name}
 							href={link.href}
