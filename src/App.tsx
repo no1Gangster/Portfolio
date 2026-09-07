@@ -11,7 +11,7 @@ import SkillsGrid from "./components/sections/SkillsGrid";
 
 const App: React.FC = (): React.ReactElement => {
 	return (
-		<div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
+		<div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-slate-950">
 			<Navbar />
 			<main className="flex-grow">
 				<HeroSection />

@@ -32,13 +32,13 @@ const ContactSection: React.FC = (): React.ReactElement => {
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 					{/* Left Column: Direct Info */}
 					<div>
-						<span className="text-xs font-mono text-cyan-400 tracking-wider uppercase bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+						<span className="text-xs font-mono text-cyan-600 dark:text-cyan-400 tracking-wider uppercase bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
 							Get in Touch
 						</span>
-						<h2 className="text-3xl sm:text-4xl font-bold text-slate-100 mt-3 mb-4">
+						<h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 mt-3 mb-4">
 							Let's Build Something High Performance
 						</h2>
-						<p className="text-slate-400 text-sm leading-relaxed mb-8">
+						<p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-8">
 							Open to opportunities in SDE-1 backend, distributed systems, core
 							banking engineering, and full-stack AI platform roles.
 						</p>
@@ -46,16 +46,16 @@ const ContactSection: React.FC = (): React.ReactElement => {
 						<div className="space-y-4">
 							<a
 								href={`mailto:${PORTFOLIO_DATA.personal.email}`}
-								className="glass-card p-4 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
+								className="glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
 							>
-								<div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+								<div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:scale-105 transition-transform">
 									<Mail className="w-5 h-5" />
 								</div>
 								<div>
-									<span className="text-xs font-mono text-slate-400 block">
+									<span className="text-xs font-mono text-slate-500 dark:text-slate-400 block">
 										Direct Email
 									</span>
-									<span className="text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
+									<span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
 										{PORTFOLIO_DATA.personal.email}
 									</span>
 								</div>
@@ -63,16 +63,16 @@ const ContactSection: React.FC = (): React.ReactElement => {
 
 							<a
 								href={`tel:${PORTFOLIO_DATA.personal.phone.replace(/\s+/g, "")}`}
-								className="glass-card p-4 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
+								className="glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
 							>
-								<div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform">
+								<div className="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 dark:text-blue-400 group-hover:scale-105 transition-transform">
 									<Phone className="w-5 h-5" />
 								</div>
 								<div>
-									<span className="text-xs font-mono text-slate-400 block">
+									<span className="text-xs font-mono text-slate-500 dark:text-slate-400 block">
 										Phone
 									</span>
-									<span className="text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
+									<span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
 										{PORTFOLIO_DATA.personal.phone}
 									</span>
 								</div>
@@ -82,16 +82,16 @@ const ContactSection: React.FC = (): React.ReactElement => {
 								href={PORTFOLIO_DATA.personal.linkedin}
 								target="_blank"
 								rel="noopener noreferrer"
-								className="glass-card p-4 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
+								className="glass-card p-4 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center gap-4 hover:border-cyan-500/50 transition-colors group"
 							>
-								<div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 group-hover:scale-105 transition-transform">
+								<div className="w-10 h-10 rounded-lg bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-500 dark:text-sky-400 group-hover:scale-105 transition-transform">
 									<Linkedin className="w-5 h-5" />
 								</div>
 								<div>
-									<span className="text-xs font-mono text-slate-400 block">
+									<span className="text-xs font-mono text-slate-500 dark:text-slate-400 block">
 										LinkedIn Profile
 									</span>
-									<span className="text-sm font-semibold text-slate-200 group-hover:text-cyan-400 transition-colors">
+									<span className="text-sm font-semibold text-slate-800 dark:text-slate-200 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
 										linkedin.com/in/cheerag-routaray
 									</span>
 								</div>
@@ -104,31 +104,31 @@ const ContactSection: React.FC = (): React.ReactElement => {
 						initial={{ opacity: 0, y: 20 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						viewport={{ once: true }}
-						className="glass-card p-8 rounded-2xl border border-slate-800"
+						className="glass-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800"
 					>
 						{submitted ? (
 							<div className="text-center py-12 space-y-4">
-								<div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
+								<div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-500 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
 									<CheckCircle className="w-6 h-6" />
 								</div>
-								<h3 className="text-lg font-bold text-slate-100">
+								<h3 className="text-lg font-bold text-slate-900 dark:text-slate-100">
 									Opening Mail Client...
 								</h3>
-								<p className="text-xs text-slate-400">
+								<p className="text-xs text-slate-500 dark:text-slate-400">
 									Thank you for reaching out! Your default email program will
 									pop up shortly.
 								</p>
 							</div>
 						) : (
 							<form onSubmit={handleSubmit} className="space-y-5">
-								<h3 className="text-lg font-bold text-slate-100 mb-2">
+								<h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">
 									Send a Message
 								</h3>
 
 								<div>
 									<label
 										htmlFor="contact-name"
-										className="block text-xs font-mono text-slate-300 mb-1.5"
+										className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1.5"
 									>
 										Your Name
 									</label>
@@ -141,14 +141,14 @@ const ContactSection: React.FC = (): React.ReactElement => {
 											setFormData({ ...formData, name: e.target.value })
 										}
 										placeholder="e.g. Alex Morgan"
-										className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+										className="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-400"
 									/>
 								</div>
 
 								<div>
 									<label
 										htmlFor="contact-email"
-										className="block text-xs font-mono text-slate-300 mb-1.5"
+										className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1.5"
 									>
 										Email Address
 									</label>
@@ -161,14 +161,14 @@ const ContactSection: React.FC = (): React.ReactElement => {
 											setFormData({ ...formData, email: e.target.value })
 										}
 										placeholder="alex@company.com"
-										className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors"
+										className="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors placeholder:text-slate-400"
 									/>
 								</div>
 
 								<div>
 									<label
 										htmlFor="contact-message"
-										className="block text-xs font-mono text-slate-300 mb-1.5"
+										className="block text-xs font-mono text-slate-600 dark:text-slate-300 mb-1.5"
 									>
 										Message
 									</label>
@@ -183,13 +183,13 @@ const ContactSection: React.FC = (): React.ReactElement => {
 											setFormData({ ...formData, message: e.target.value })
 										}
 										placeholder="Hi Cheerag, I came across your profile and would love to connect..."
-										className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none"
+										className="w-full px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:border-cyan-500 transition-colors resize-none placeholder:text-slate-400"
 									/>
 								</div>
 
 								<button
 									type="submit"
-									className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
+									className="w-full py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-50 dark:text-slate-950 font-bold text-sm transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
 								>
 									<Send className="w-4 h-4" /> Send Message
 								</button>
