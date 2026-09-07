@@ -1,4 +1,4 @@
-// FIXME: Linkedin icon maybe removed in future updates, currently is deprecated, but the URL provided for new icon by the depecation comments in `SimpleIcons` website is not available.
+import { AnimatePresence, motion } from "framer-motion";
 import { Linkedin, Mail, Menu, Moon, Sun, Terminal, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useState } from "react";
@@ -51,9 +51,18 @@ const Navbar: React.FC = (): React.ReactElement => {
 						<span className="font-bold text-slate-900 dark:text-slate-100 tracking-tight block text-base leading-tight">
 							{PORTFOLIO_DATA.personal.name}
 						</span>
-						<span className="text-[11px] text-cyan-500 dark:text-cyan-400 font-mono tracking-wide">
-							Software Development Engineer
-						</span>
+						<AnimatePresence mode="wait">
+							<motion.span
+								key={!scrolled ? "Software Development Engineer" : "SDE"}
+								className="inline-block text-[11px] text-cyan-500 dark:text-cyan-400 font-mono tracking-wide min-w-56"
+								initial={{ opacity: 0, y: 4 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -4 }}
+								transition={{ duration: 0.3 }}
+							>
+								{!scrolled ? "Software Development Engineer" : "SDE"}
+							</motion.span>
+						</AnimatePresence>
 					</div>
 				</a>
 
