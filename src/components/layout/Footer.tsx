@@ -8,7 +8,7 @@ const Footer: React.FC = (): React.ReactElement => {
 	};
 
 	return (
-		<footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-100 dark:bg-slate-950 py-12 text-slate-500 dark:text-slate-400">
+		<footer className="border-t border-slate-200 dark:border-slate-800/80 bg-slate-50 dark:bg-slate-900 py-12 text-slate-500 dark:text-slate-400">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
 				<div className="flex items-center gap-3">
 					<div className="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-500 dark:text-cyan-400">
@@ -48,7 +48,7 @@ const Footer: React.FC = (): React.ReactElement => {
 					<button
 						type="button"
 						onClick={scrollToTop}
-						className="p-2 rounded-lg bg-slate-200 dark:bg-slate-900 border border-slate-300 dark:border-slate-800 hover:border-cyan-500/50 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all text-slate-500 dark:text-slate-400"
+						className="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-800 hover:border-cyan-500/50 hover:text-cyan-500 dark:hover:text-cyan-400 transition-all text-slate-500 dark:text-slate-400"
 						title="Back to Top"
 					>
 						<ArrowUp className="w-4 h-4" />
