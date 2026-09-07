@@ -101,7 +101,7 @@ const HeroSection: React.FC = (): React.ReactElement => {
 
 					<a
 						href="#contact"
-						className="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-900 hover:bg-slate-300 dark:hover:bg-slate-800 border border-slate-300/80 dark:border-slate-700/80 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all flex items-center gap-2"
+						className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-900 hover:bg-slate-300 dark:hover:bg-slate-800 border border-slate-300/80 dark:border-slate-700/80 text-slate-800 dark:text-slate-200 font-medium text-sm transition-all flex items-center gap-2"
 					>
 						<Mail className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />
 						Contact Me
@@ -116,7 +116,10 @@ const HeroSection: React.FC = (): React.ReactElement => {
 					className="pt-8 border-t border-slate-200/60 dark:border-slate-800/60 grid grid-cols-2 md:grid-cols-4 gap-4"
 				>
 					{TECH_HIGHLIGHTS.map((techHighlight: TechHighlight) => (
-						<div className="flex items-center gap-3 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60">
+						<div
+							key={techHighlight.title}
+							className="flex items-center gap-3 p-3 rounded-xl bg-slate-100/60 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60"
+						>
 							<div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-500 dark:text-cyan-400">
 								<techHighlight.icon className="w-5 h-5" />
 							</div>

@@ -175,7 +175,6 @@ const PORTFOLIO_DATA: PortfolioData = {
 				{ name: "Python", icon: SkillIcon.Code },
 				{ name: "C/C++", icon: SkillIcon.Cpu },
 				{ name: "NodeJS", icon: SkillIcon.Server },
-				{ name: "Bun", icon: SkillIcon.Zap },
 				{ name: "Ktor", icon: SkillIcon.Server },
 				{ name: "Koin", icon: SkillIcon.Layers },
 				{ name: "JavaScript (ES6+)", icon: SkillIcon.Code },
